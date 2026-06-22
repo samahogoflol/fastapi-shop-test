@@ -4,7 +4,7 @@ from typing import Dict
 from ..schemas.cart import CartResponse, CartItem, CartItemCreate, CartItemUpdate
 from fastapi import HTTPException, status
 
-class CategoryService:
+class CartService:
     def __init__(self, db: Session):
         self.product_repository = ProductRepository(db)
 
