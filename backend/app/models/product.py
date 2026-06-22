@@ -1,4 +1,4 @@
-from backend.app import database
+from .. import database
 from sqlalchemy import Column, Integer, String, Text, Float, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -8,9 +8,10 @@ class Product(Base):
     __tablename__ = "product"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=false, index=True)
+    name = Column(String, nullable=False, index=True)
     description = Column(Text)
     price = Column(Float, nullable=False)
-    category_id = Column(Integer, ForeignKey("category.id"), nullable=False)
+    category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)
     image_url = Column(String)
     created_at = Column(DateTime, default=datetime.now())
+    category = relationship("Category", back_populates="products")

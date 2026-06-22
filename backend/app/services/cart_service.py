@@ -1,4 +1,4 @@
-from repositories.product_repository import ProductRepository
+from ..repositories.product_repository import ProductRepository
 from sqlalchemy.orm import Session
 from typing import Dict
 from ..schemas.cart import CartResponse, CartItem, CartItemCreate, CartItemUpdate
@@ -62,7 +62,7 @@ class CartService:
                                      price=product.price, quantity=quantity, subtotal=subtotal,
                                      image_url=product.image_url)
 
-                cart_item.append(cart_item)
+                cart_item(cart_item)
                 total_price += subtotal
                 total_items += quantity
 

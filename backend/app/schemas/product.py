@@ -17,7 +17,7 @@ class ProductCreate(ProductBase):
 
 class ProductResponse(BaseModel):
     id: int = Field(..., description="Product ID")
-    name = str
+    name : str
     description: Optional[str]
     price : float
     category_id: int
