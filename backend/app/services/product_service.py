@@ -14,7 +14,7 @@ class ProductService:
     def get_all_products(self) -> ProductListResponse:
         product = self.product_repository.get_all()
         products_response = [ProductResponse.model_validate(prod) for prod in product]
-        return ProductListResponse(products_response=products_response, total=len(products_response))
+        return ProductListResponse(products=products_response, total=len(products_response))
 
     def get_product_by_id(self, product_id: int) -> ProductResponse:
         product = self.product_repository.get_by_id(product_id)
